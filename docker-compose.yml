@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  graphql-api:
+    image: hasura/graphql-engine:v1.3.3
+    env_file: .env
+    restart: always
+    networks:
+      - db-network-private
+    ports:
+      - "8080:8080"
+
+networks:
+  db-network-private:
+    external: true
